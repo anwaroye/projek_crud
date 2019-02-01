@@ -11,6 +11,7 @@ use App\table_object;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 
 class ControllerTableBenda extends Controller
 {
@@ -21,13 +22,11 @@ class ControllerTableBenda extends Controller
      */
     public function index()
     {
-      if (Auth::user()) {
-        $benda = table_object::all();
-        return view('page.table_benda',compact('benda'));
-      }
-      return view('auth.login');
-
-
+        if (Auth::user()) {
+            $benda = table_object::all();
+            return view('page.table_benda', compact('benda'));
+        }
+        return view('auth.login');
     }
 
     /**
@@ -37,13 +36,11 @@ class ControllerTableBenda extends Controller
      */
     public function addbenda()
     {
-      if (Auth::user()){
-        $benda = 'crud.create_benda';
-        return view ('page.create_benda',compact('benda'));
-
-      }
-return view('auth.login');
-
+        if (Auth::user()) {
+            $benda = 'crud.create_benda';
+            return view('page.create_benda', compact('benda'));
+        }
+        return view('auth.login');
     }
 
     /**
@@ -54,16 +51,25 @@ return view('auth.login');
      */
     public function store(Request $request)
     {
-      $this->validate($request,[
-        'namabenda'=>'required',
-        'deskripsi'=>'required',
-       // 'gambar'=>'required',
+        $this->validate($request, [
+        'object_name'=>'required',
+        'object_desc'=>'required',
+        'type_object'=>'required',
+       'object_img'=>'required',
       ]);
-    $page = new table_object();
-    $page-> object_name = $request->namabenda;
-    $page-> object_desc = $request->deskripsi;
-    $page->save();
-    return redirect('')->route('addbenda')->with('alert-succes', 'Data berhasil disimpan');
+        $benda = new table_object();
+        $benda->id_object=Uuid::uuid4();
+        $benda->object_name= $request->get('object_name');
+        $benda->type_object= $request->get('type_object');
+        $benda->object_desc = $request->get('object_desc');
+        $file =$request->file('object_img');
+        $fillName =$file->getClientOriginalName();
+        $request->file('object_img')->move("image/", $fillName);
+        // ennddddd
+        $benda->object_img = $fillName;
+        $benda->save();
+        // dd($benda);
+        return redirect()->route('benda')->with('alert-succes', 'Data berhasil disimpan');
     }
 
     /**
@@ -97,7 +103,6 @@ return view('auth.login');
      */
     public function updateBenda(Request $request, $id)
     {
-
     }
 
     /**
@@ -106,8 +111,12 @@ return view('auth.login');
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyBenda($id)
     {
-        //
+        {
+          $deleteBenda = table_object::findOrFail($id);
+          $deleteBenda ->delete();
+          return redirect()->route('benda')->with('alert', 'anda yakin ingin menghapus');
+        }
     }
 }

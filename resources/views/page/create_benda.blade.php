@@ -23,7 +23,7 @@
 <br />
 <br />
 <div class="container-fluid">
-    <form action="" enctype="multipart/form-data" method="POST">
+    <form action="{{route('createbenda')}}" enctype="multipart/form-data" method="POST">
         {{ csrf_field() }}
         <div class="form-group">
             <label>nama benda</label>
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <label>type benda</label>
-            <input type="text" class="form-control" placeholder="Enter Nama Benda" name="object_name">
+            <input type="text" class="form-control" placeholder="Enter Nama Benda" name="type_object">
         </div>
 
         <textarea class="form-control" type="text" name="object_desc" required="required" id="deskripsi"></textarea>

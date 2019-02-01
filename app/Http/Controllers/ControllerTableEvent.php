@@ -81,9 +81,7 @@ class ControllerTableEvent extends Controller
        'img_event'=>'required',
       ]);
         $event = new table_event();
-        $event-> id_event =Uuid::uuid4(); // toString()
-
-        // $event->id_event= $request->get('id_event');
+        $event->id_event =Uuid::uuid4(); // toString()
         $event->title_event = $request->get('title_event');
         $event->status_event = $request->get('status_event');
         $event->desc_event = $request->get('desc_event');

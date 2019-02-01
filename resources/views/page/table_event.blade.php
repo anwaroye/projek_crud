@@ -6,7 +6,7 @@
         Data Table Example</div>
     <div class="card-body">
         <div class="table-responsive">
-            <a href="{{route('addbenda')}}" class="btn btn-info btn-sm">+ Tambah event</a>
+            <a href="{{route('addevent')}}" class="btn btn-info btn-sm">+ Tambah event</a>
             <hr>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
@@ -26,7 +26,6 @@
                 <tbody>
                     @php $no =1;
                     @endphp
-
                     @foreach ($event as $events)
 
                     <tr>

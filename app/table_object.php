@@ -7,11 +7,13 @@ class table_object extends Model
 {
 
     protected $table ="table_objects";
-    protected $primaryKey ="id_object";
+    // protected $primaryKey ="id_object";
     protected $fillable =
     [
     'id_object',
     'object_name',
+    'object_img',
+    'type_object',
     'object_desc',
   ];
 

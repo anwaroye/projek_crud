@@ -25,14 +25,14 @@ Route::get('/dashboard','ControllerDashboard@index')->name('dashboard');
 Route::get('/kritikdansaran','ControllerTableKritikSaran@index')->name('kritikdansaran');
 Route::get('/user_android', 'ControllerTableUser@index')->name('user_android');
 // =============modul benda TABLE ==================
-
 Route::get('/benda', 'ControllerTableBenda@index')->name('benda');
 Route::get('/addbenda', 'ControllerTableBenda@addbenda')->name('addbenda');
+Route::post('/createbenda','ControllerTableBenda@store')->name('createbenda');
+Route::post('/deleteBenda/{id}','ControllerTableBenda@destroyBenda')->name('deleteBenda');
 //-====== model event ===========
 Route::get('/event','ControllerTableEvent@index')->name('event');
 Route::get('/addevent','ControllerTableEvent@addevent')->name('addevent');
 Route::post('/createevent','ControllerTableEvent@store')->name('createevent');
-// link untuk menuju edit
 Route::get('/EditEvent{id}','ControllerTableEvent@editEvent')->name('EditEvent');
 Route::post('/updateEvent/{id}' ,'ControllerTableEvent@updateEvent')->name('updateEvent');
 Route::post('/deleteEvent/{id}', 'ControllerTableEvent@destroyEvent')->name('deleteEvent');
