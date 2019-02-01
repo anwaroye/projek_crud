@@ -36,7 +36,7 @@
         <div class="row form-group">
             <div class="col col-md-3"><label for="select" class=" form-control-label">Kategori benda</label></div>
             <div class="col-12 col-md-9">
-                <select name="type_object" data-placeholder="Please select..." class="form-control" tabindex="1">
+                <select name="type_object" data-placeholder="Please select..." class="form-control" tabindex="1" type="text">
                     @foreach($types as $type)
                     <option value="{{$type->id}}">{{$type->kat_benda}}</option>
                     @endforeach
