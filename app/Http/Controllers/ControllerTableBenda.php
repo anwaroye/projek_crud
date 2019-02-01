@@ -22,16 +22,8 @@ class ControllerTableBenda extends Controller
     public function index()
     {
       if (Auth::user()) {
-        // $page = 'tabel_benda';
-        // $data = table_object::all();
-        // return view ($page)->with(compact('data'));
-
-
-
-
-        $page = table_object::all();
-        return view('page.table_benda',compact('page'));
-        // code...
+        $benda = table_object::all();
+        return view('page.table_benda',compact('benda'));
       }
       return view('auth.login');
 
@@ -46,8 +38,8 @@ class ControllerTableBenda extends Controller
     public function addbenda()
     {
       if (Auth::user()){
-        $page = 'crud.create_benda';
-        return view ($page);
+        $benda = 'crud.create_benda';
+        return view ('page.create_benda',compact('benda'));
 
       }
 return view('auth.login');
@@ -63,43 +55,15 @@ return view('auth.login');
     public function store(Request $request)
     {
       $this->validate($request,[
-        // 'idbenda' =>'required',
         'namabenda'=>'required',
         'deskripsi'=>'required',
        // 'gambar'=>'required',
       ]);
     $page = new table_object();
-    $page-> id_event = $request->idbenda Uuid::uuid4()->getHex(); // toString()
-    // $page -> id_object  = $request->idbenda;
     $page-> object_name = $request->namabenda;
     $page-> object_desc = $request->deskripsi;
-
     $page->save();
     return redirect('')->route('addbenda')->with('alert-succes', 'Data berhasil disimpan');
-
-
-      // table_object::create([
-      //   'id_object'=> $request('idbenda'),
-      //   'object_name' => $request('namabenda'),
-      //   'object_desc' => $request('deskripsi'),
-      // ]);
-      // return view('benda');
-
-      // $this->validate($request,[
-      //   'idbenda' =>'required',
-      //   'namabenda'=>'required',
-      //   'deskripsi'=>'required',
-      //  'gambar'=>'required',
-      // ]);
-      //   inser data tabel benda
-      //   table_object::table('table_objects')->insert ([
-      //     $data = new table_object();
-      //     $data ->id_object= $request->get('idbenda');
-      //     $data ->object_name= $request->get('namabenda');
-      //     $data ->object_desc= $request->get ('text-ckeditor');
-      //      $data->save();
-      //
-      //   return redirect()->route('addbenda')->with('alert-succes', 'Data Berhasil ditambahkan');
     }
 
     /**

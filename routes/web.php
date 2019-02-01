@@ -24,18 +24,11 @@ Route::get('/pengelola','ControllerTablePengelola@index')->name('pengelola');
 Route::get('/dashboard','ControllerDashboard@index')->name('dashboard');
 Route::get('/kritikdansaran','ControllerTableKritikSaran@index')->name('kritikdansaran');
 Route::get('/user_android', 'ControllerTableUser@index')->name('user_android');
-
-
-Route::resource('object','ControllerTableBenda');
 // =============modul benda TABLE ==================
 
 Route::get('/benda', 'ControllerTableBenda@index')->name('benda');
 Route::get('/addbenda', 'ControllerTableBenda@addbenda')->name('addbenda');
-Route::post('/addbenda','ControllerTableBenda@store')->name('addbenda');
-
-
 //-====== model event ===========
-// Route::resource('/page.store' ,'ControllerTableEvent@store');
 Route::get('/event','ControllerTableEvent@index')->name('event');
 Route::get('/addevent','ControllerTableEvent@addevent')->name('addevent');
 Route::post('/createevent','ControllerTableEvent@store')->name('createevent');

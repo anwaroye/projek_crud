@@ -16,7 +16,10 @@
 
     <title>SB Admin - Dashboard</title>
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --}}
+    {{-- <link href="{{asset('filepond-master/dist/filepond.css')}}" rel="stylesheet"> --}}
+    {{-- <link href="{{asset('filepond-master/dist/filepond.min.css')}}" rel="stylesheet"> --}}
 
+    {{-- <link rel="stylesheet" href="https://unpg.com/pqina/filepond/dist/filepond.css"> --}}
     <!-- Bootstrap core CSS-->
     <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -258,6 +261,15 @@
     <script src="{{asset('assets/js/demo/datatables-demo.js')}}"></script>
     <script src="{{asset('assets/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.js')}}"></script>
+    <script src="{{asset('filepond-master/dist/filepond.js')}}">
+    </script>
+    <script src="https://unpg.com/pqina/filepond/dist/filepond.js">
+
+    </script>
+    <script>
+    FilePond.parsel(document.body);
+
+    </script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> --}}
 
 

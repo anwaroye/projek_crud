@@ -35,16 +35,11 @@ class ControllerTableEvent extends Controller
      */
     public function addevent()
     {
-
-      $event ="page.create_event";
-      return view($event);
-
-      // if (Auth::user()){
-      //   $event = table_event::all();
-      //   return view ('crud.create_event',compact('event'));
-
-
-
+      if (Auth::user()){
+        $event = table_event::all();
+        return view ('page.create_event',compact('event'));
+      }
+      return vew ('auth.login');
     }
 
     /**
@@ -79,17 +74,16 @@ class ControllerTableEvent extends Controller
 
 
       $this->validate($request,[
-        'id_event' =>'required',
+        // 'id_event' =>'required',
         'title_event'=>'required',
         'status_event'=>'required',
         'desc_event'=>'required',
        'img_event'=>'required',
       ]);
-      // $event = table_event::create();
         $event = new table_event();
-        // $event-> id_event =Uuid::uuid4(); // toString()
+        $event-> id_event =Uuid::uuid4(); // toString()
 
-        $event->id_event= $request->get('id_event');
+        // $event->id_event= $request->get('id_event');
         $event->title_event = $request->get('title_event');
         $event->status_event = $request->get('status_event');
         $event->desc_event = $request->get('desc_event');

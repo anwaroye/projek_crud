@@ -18,7 +18,10 @@ class CreateTableManagersTable extends Migration
             $table->string('id_manager',8);
             $table->string('position_manager')->nullable()->default(null);
             $table->string('name_manager');
-            $table->string('gender')->nullable()->default(null);;
+            $table->string('gender')->nullable()->default(null);
+            $table->string('birth_manager');
+            $table->string('religion');
+            $table->string('img_manager')->nullable()->default(null);
             $table->text('address');
             $table->string('desc_manager');
             $table->softDeletes();
