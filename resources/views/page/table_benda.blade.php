@@ -1,5 +1,13 @@
 @extends('home')
 @section('table')
+  <div class="container-fluid">
+          <!-- Breadcrumbs-->
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Benda museum</li>
+          </ol>
 <div class="card mb-3">
     <div class="card-header">
         <i class="fas fa-table"></i>
@@ -53,6 +61,8 @@
             </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    <div class="card-footer small text-muted">Updated yesterday at {{$bendas->created_at}}</div>
 </div>
+</div>
+
 @endsection

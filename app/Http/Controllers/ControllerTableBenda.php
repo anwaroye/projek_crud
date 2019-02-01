@@ -69,7 +69,7 @@ class ControllerTableBenda extends Controller
         $request->file('object_img')->move("image/", $fillName);
         $benda->object_img = $fillName;
         $benda->save();
-        dd($benda);
+        // dd($benda);
         return redirect()->route('benda')->with('alert-succes', 'Data berhasil disimpan');
     }
 
