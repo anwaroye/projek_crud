@@ -25,6 +25,7 @@ Route::get('/dashboard','ControllerDashboard@index')->name('dashboard');
 Route::get('/kritikdansaran','ControllerTableKritikSaran@index')->name('kritikdansaran');
 Route::get('/user_android', 'ControllerTableUser@index')->name('user_android');
 // =============modul benda TABLE ==================
+Route::get('/data-benda','ControllerKatBenda@index')->name('data.benda');
 Route::get('/benda', 'ControllerTableBenda@index')->name('benda');
 Route::get('/addbenda', 'ControllerTableBenda@addbenda')->name('addbenda');
 Route::post('/createbenda','ControllerTableBenda@store')->name('createbenda');

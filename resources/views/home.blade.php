@@ -109,11 +109,19 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('benda')}}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Table benda museum</span></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-archive"></i>
+            <span>Master Data Benda</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <h6 class="dropdown-header">Data:</h6>
+            <a class="dropdown-item" href="{{route('benda')}}">Benda museum</a>
+            <a class="dropdown-item" href="{{route('data.benda')}}">Benda Category</a>
+
+          </div>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="{{route('event')}}">
             <i class="fas fa-fw fa-chart-area"></i>
@@ -139,6 +147,8 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>User</span></a>
         </li>
+
+
 
 
 

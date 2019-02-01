@@ -16,6 +16,9 @@ class table_object extends Model
     'type_object',
     'object_desc',
   ];
+  public function TypeBenda(){
+    return $this->belongsTo('App\TypeBenda');
+  }
 
 
 }

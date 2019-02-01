@@ -8,6 +8,7 @@ use App\Http\Controllers\ControllerTableBenda;
 use Illuminate\Support\Facades\DB;
 
 use App\table_object;
+use App\TypeBenda;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -37,8 +38,9 @@ class ControllerTableBenda extends Controller
     public function addbenda()
     {
         if (Auth::user()) {
-            $benda = 'crud.create_benda';
-            return view('page.create_benda', compact('benda'));
+            $benda = 'page.create_benda';
+            $types = TypeBenda::all();
+            return view ($benda)->with(compact('types'));
         }
         return view('auth.login');
     }
@@ -65,10 +67,9 @@ class ControllerTableBenda extends Controller
         $file =$request->file('object_img');
         $fillName =$file->getClientOriginalName();
         $request->file('object_img')->move("image/", $fillName);
-        // ennddddd
         $benda->object_img = $fillName;
         $benda->save();
-        // dd($benda);
+        dd($benda);
         return redirect()->route('benda')->with('alert-succes', 'Data berhasil disimpan');
     }
 
