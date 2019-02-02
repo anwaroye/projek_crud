@@ -20,6 +20,7 @@
                 <thead>
                     <tr>
                         <th>no</th>
+                        <th>id</th>
                         <th>Action</th>
                         <th>id benda</th>
                         <th>nama benda</th>
@@ -44,6 +45,8 @@
                           <a href="#"><i class="fa fa-1x fa-edit text-green"></i></a>
 
                         </td>
+                        <td>{{$bendas->id}}</td>
+                        
                         <td>{{$bendas->id_object}}</td>
                         <td>{{$bendas->object_name}}</td>
                         <td>{{$bendas->type_object}}</td>

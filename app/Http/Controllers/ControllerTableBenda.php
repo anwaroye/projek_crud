@@ -24,7 +24,12 @@ class ControllerTableBenda extends Controller
     public function index()
     {
         if (Auth::user()) {
-            $benda = table_object::all();
+            // $benda = table_object::all();
+            // $benda = table_object::orderBy('id','DESC')->get;
+            // $benda = table_object::lates();
+            $benda = table_object::orderBy('id','DESC')->paginate(100);
+
+
             return view('page.table_benda', compact('benda'));
         }
         return view('auth.login');
