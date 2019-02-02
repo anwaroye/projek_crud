@@ -15,6 +15,7 @@
     </script>
 
     <title>SB Admin - Dashboard</title>
+    {{-- <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet"> --}}
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --}}
     {{-- <link href="{{asset('filepond-master/dist/filepond.css')}}" rel="stylesheet"> --}}
     {{-- <link href="{{asset('filepond-master/dist/filepond.min.css')}}" rel="stylesheet"> --}}
@@ -234,7 +235,7 @@
           </div>
         </div>
       </div>
-    
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
@@ -263,13 +264,7 @@
     <script src="{{asset('assets/js/bootstrap.js')}}"></script>
     <script src="{{asset('filepond-master/dist/filepond.js')}}">
     </script>
-    <script src="https://unpg.com/pqina/filepond/dist/filepond.js">
 
-    </script>
-    <script>
-    FilePond.parsel(document.body);
-
-    </script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> --}}
 
 
@@ -282,7 +277,14 @@
     })(jQuery);
 
     </script>
+    <!-- Load FilePond library -->
+  {{-- <script src="https://unpkg.com/filepond/dist/filepond.js"></script> --}}
 
+  <!-- Turn all file input elements into ponds -->
+  {{-- <script>
+  FilePond.parse(document.body);
+  </script>
+ --}}
 
   </body>
 

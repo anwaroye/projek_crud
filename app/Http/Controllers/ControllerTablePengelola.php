@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Ramsey\Uuid\Uuid;
+
 
 class ControllerTablePengelola extends Controller
 {
@@ -13,8 +17,14 @@ class ControllerTablePengelola extends Controller
      */
     public function index()
     {
-        $pengelola ="page.table_manager";
-        return view ($pengelola);
+      if (Auth::user()) {
+
+          $manager = table_manager::orderBy('id','DESC')->paginate(100);
+
+
+          return view('page.table_manager', compact('manager'));
+      }
+      return view('auth.login');
     }
 
     /**

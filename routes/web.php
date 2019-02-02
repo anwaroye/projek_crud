@@ -24,13 +24,15 @@ Route::get('/pengelola','ControllerTablePengelola@index')->name('pengelola');
 Route::get('/dashboard','ControllerDashboard@index')->name('dashboard');
 Route::get('/kritikdansaran','ControllerTableKritikSaran@index')->name('kritikdansaran');
 Route::get('/user_android', 'ControllerTableUser@index')->name('user_android');
-// =============modul benda TABLE ==================
+// ============= benda TABLE ==================
+
 Route::get('/data-benda','ControllerKatBenda@index')->name('data.benda');
 Route::get('/benda', 'ControllerTableBenda@index')->name('benda');
 Route::get('/addbenda', 'ControllerTableBenda@addbenda')->name('addbenda');
 Route::post('/createbenda','ControllerTableBenda@store')->name('createbenda');
 Route::post('/deleteBenda/{id}','ControllerTableBenda@destroyBenda')->name('deleteBenda');
-//-====== model event ===========
+
+//-====== tabel event ===========
 Route::get('/event','ControllerTableEvent@index')->name('event');
 Route::get('/addevent','ControllerTableEvent@addevent')->name('addevent');
 Route::post('/createevent','ControllerTableEvent@store')->name('createevent');
@@ -44,3 +46,4 @@ Route::post('/deleteEvent/{id}', 'ControllerTableEvent@destroyEvent')->name('del
 
 
 //======= pengelola=================
+Route::get('/manager','ControllerTablePengelola@index')->name('manager');

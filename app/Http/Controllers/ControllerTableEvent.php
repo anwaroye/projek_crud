@@ -21,7 +21,7 @@ class ControllerTableEvent extends Controller
     public function index()
     {
       if (Auth::user()) {
-        $event = table_event::all();
+        $event = table_event::orderBy('id','DESC')->paginate(100);
         return view('page.table_event',compact('event'));
         // code...
       }

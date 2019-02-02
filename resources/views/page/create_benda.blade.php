@@ -26,13 +26,16 @@
     <form action="{{route('createbenda')}}" enctype="multipart/form-data" method="POST">
         {{ csrf_field() }}
         <div class="form-group">
-            <label>nama benda</label>
-            <input type="text" class="form-control" placeholder="Enter Nama Benda" name="object_name">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>nama benda</label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" placeholder="Enter Nama Benda" name="object_name">
+            </div>
+          </div>
+
         </div>
-        {{-- <div class="form-group">
-            <label>type benda</label>
-            <input type="text" class="form-control" placeholder="Enter Nama Benda" name="type_object">
-        </div> --}}
         <div class="row form-group">
             <div class="col col-md-3"><label for="select" class=" form-control-label">Kategori benda</label></div>
             <div class="col-12 col-md-9">
@@ -52,9 +55,13 @@
 
             </div>
         </div>
+        {{-- <div class="">
+        <input type="file" class="filepond" name="object_img">
+        </div> --}}
         <br>
         <button type="submit" class="btn btn-primary" value="simpandata">Submit</button>
     </form>
 </div>
+
 
 @endsection
