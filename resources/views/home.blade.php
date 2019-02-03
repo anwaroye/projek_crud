@@ -15,12 +15,7 @@
     </script>
 
     <title>SB Admin - Dashboard</title>
-    {{-- <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet"> --}}
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --}}
-    {{-- <link href="{{asset('filepond-master/dist/filepond.css')}}" rel="stylesheet"> --}}
-    {{-- <link href="{{asset('filepond-master/dist/filepond.min.css')}}" rel="stylesheet"> --}}
 
-    {{-- <link rel="stylesheet" href="https://unpg.com/pqina/filepond/dist/filepond.css"> --}}
     <!-- Bootstrap core CSS-->
     <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -148,6 +143,18 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>User</span></a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-archive"></i>
+            <span>Data Data</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <h6 class="dropdown-header">Data:</h6>
+            <a class="dropdown-item" href="{{route('religon')}}">Agama</a>
+            <a class="dropdown-item" href="{{route('posManger')}}">Pengelola</a>
+
+          </div>
+        </li>
 
 
 
@@ -257,6 +264,7 @@
     </script>
     <!-- Custom scripts for all pages-->
     <script src="{{asset('assets/js/sb-admin.min.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <!-- Demo scripts for this page-->
     <script src="{{asset('assets/js/demo/datatables-demo.js')}}"></script>
@@ -277,6 +285,8 @@
     })(jQuery);
 
     </script>
+
+
     <!-- Load FilePond library -->
   {{-- <script src="https://unpkg.com/filepond/dist/filepond.js"></script> --}}
 

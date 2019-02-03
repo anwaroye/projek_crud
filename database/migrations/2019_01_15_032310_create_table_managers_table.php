@@ -19,6 +19,7 @@ class CreateTableManagersTable extends Migration
             $table->string('position_manager')->nullable()->default(null);
             $table->string('name_manager');
             $table->string('gender')->nullable()->default(null);
+            $table->string('place_of_birth');
             $table->string('birth_manager');
             $table->string('religion');
             $table->string('img_manager')->nullable()->default(null);

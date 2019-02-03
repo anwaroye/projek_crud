@@ -24,6 +24,9 @@ Route::get('/pengelola','ControllerTablePengelola@index')->name('pengelola');
 Route::get('/dashboard','ControllerDashboard@index')->name('dashboard');
 Route::get('/kritikdansaran','ControllerTableKritikSaran@index')->name('kritikdansaran');
 Route::get('/user_android', 'ControllerTableUser@index')->name('user_android');
+Route::get('/posManger','ControllerPosManager@index')->name('posManger');
+Route::get('/religon','ControllerReligion@index')->name('religon');
+
 // ============= benda TABLE ==================
 
 Route::get('/data-benda','ControllerKatBenda@index')->name('data.benda');
@@ -47,3 +50,4 @@ Route::post('/deleteEvent/{id}', 'ControllerTableEvent@destroyEvent')->name('del
 
 //======= pengelola=================
 Route::get('/manager','ControllerTablePengelola@index')->name('manager');
+Route::get('/addmanager','ControllerTablePengelola@addmanager')->name('addmanager');

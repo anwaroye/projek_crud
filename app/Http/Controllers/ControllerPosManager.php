@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\position_manager;
 use Illuminate\Support\Facades\Auth;
-
-use Ramsey\Uuid\Uuid;
-use App\table_manager;
-
-
-class ControllerTablePengelola extends Controller
+class ControllerPosManager extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +14,13 @@ class ControllerTablePengelola extends Controller
      */
     public function index()
     {
-      if (Auth::user()) {
+      if (Auth::user())
+       {
+         $manager = position_manager::all();
+         return view('page.position_manager', compact('manager'));
+        }
+        return view('auth.login');
 
-          $manager = table_manager::orderBy('id','DESC')->paginate(100);
-
-
-          return view('page.table_pengelola', compact('manager'));
-      }
-      return view('auth.login');
     }
 
     /**
@@ -33,14 +28,9 @@ class ControllerTablePengelola extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function addmanager()
+    public function create()
     {
-
-        if (Auth::user()) {
-            $manager = 'page.create_manager';
-            return view ($manager);
-      }
-      return view('auth.login');
+        //
     }
 
     /**
