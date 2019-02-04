@@ -62,7 +62,7 @@
             </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at {{$bendas->created_at}}</div>
+    <div class="card-footer small text-muted">Updated yesterday at </div>
 </div>
 </div>
 

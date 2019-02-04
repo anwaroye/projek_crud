@@ -138,12 +138,12 @@ class ControllerTableEvent extends Controller
     public function updateEvent(Request $request, $id)
     {
       $updateEvent = table_event::findOrFail($id);
-      $updateEvent->title_event->$request->title_event;
-      $updateEvent->status_event->$request->status_event;
-      $updateEvent->desc_event->$request->desc_event;
+      $updateEvent->title_event=$request->title_event;
+      $updateEvent->status_event=$request->status_event;
+      $updateEvent->desc_event=$request->desc_event;
       if ($request->file('img_event')=="")
        {
-         $updateEvent->img_event =$updateEvent->img_event;
+         $updateEvent->img_event=$updateEvent->img_event;
       }
       else {
         $file = $request->file('img_event');
@@ -151,6 +151,7 @@ class ControllerTableEvent extends Controller
         $request->file('img_event')->move("image/", $fillName);
         $updateEvent->img_event= $fillName;
       }
+      $updateEvent->update();
       // dd('$updateEvent');
       // $updateEvent->img_event->$request->img_event;
       $success = $updateEvent->save();

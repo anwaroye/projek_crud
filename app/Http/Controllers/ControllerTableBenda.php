@@ -109,6 +109,31 @@ class ControllerTableBenda extends Controller
      */
     public function updateBenda(Request $request, $id)
     {
+      $updateBenda = table_event::findOrFail($id);
+      $updateBenda->title_event=$request->title_event;
+      $updateBenda->status_event=$request->status_event;
+      $updateBenda->desc_event=$request->desc_event;
+      if ($request->file('img_event')=="")
+       {
+         $updateBenda->img_event=$updateBenda->img_event;
+      }
+      else {
+        $file = $request->file('img_event');
+        $fillName = $file->getClientOriginalName();
+        $request->file('img_event')->move("image/", $fillName);
+        $updateBenda->img_event= $fillName;
+      }
+      $updateBenda->update();
+      // dd('$updateBenda');
+      // $updateBenda->img_event->$request->img_event;
+      $success = $updateBenda->save();
+      if ($success){
+        //return untuk $success
+        return redirect()->route('event')->with('alert', 'Data Berhasil dimasukan');
+
+      }else{
+        return redirect()->route('EditEvent')->with('alert', 'Data tidak berhasil dimasukan');
+      }
     }
 
     /**
