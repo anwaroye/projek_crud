@@ -29,6 +29,7 @@
         {{ csrf_field() }}
         {{-- @method('PUT') --}}
         <div class="form-group">
+
             <label>Nama event</label>
             <input value="{{$EditEvent->title_event}}" type="text" class="form-control" id="title_event" required="required" placeholder="Enter nama event" name="title_event">
         </div>

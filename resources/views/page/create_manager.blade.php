@@ -17,10 +17,6 @@
 
             <div class="form-group col-sm-5">
                 <label>tanggal lahir</label>
-                <!-- datedropper-init class -->
-<input class="datedropper-init" type="date">
-<!-- data-datedropper attribute -->
-<input type="date" data-datedropper>
             <div class="form-group col-sm-2">
                 <label>jenis kelamin</label>
                 <input type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event">
@@ -30,7 +26,14 @@
 
             <div class="form-group col-sm-3">
                 <label>agama</label>
-                <input type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event">
+                {{-- <input type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event"> --}}
+                <div class="col-12 col-md-9">
+                    <select name="type_object" data-placeholder="Please select..." class="form-control" tabindex="1" type="text">
+                        @foreach($managers as $manager)
+                        <option value="{{$manager->position_manag}}">{{$manager->position_manag}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
 
             <div class="form-group col-sm-4">

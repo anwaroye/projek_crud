@@ -33,7 +33,7 @@ Route::get('/data-benda','ControllerKatBenda@index')->name('data.benda');
 Route::get('/benda', 'ControllerTableBenda@index')->name('benda');
 Route::get('/addbenda', 'ControllerTableBenda@addbenda')->name('addbenda');
 Route::post('/createbenda','ControllerTableBenda@store')->name('createbenda');
-Route::post('/updateBenda','ControllerTableBenda@updateBenda')->name('updateBenda')
+Route::post('/updateBenda','ControllerTableBenda@updateBenda')->name('updateBenda');
 Route::post('/deleteBenda/{id}','ControllerTableBenda@destroyBenda')->name('deleteBenda');
 
 //-====== tabel event ===========
@@ -52,3 +52,10 @@ Route::post('/deleteEvent/{id}', 'ControllerTableEvent@destroyEvent')->name('del
 //======= pengelola=================
 Route::get('/manager','ControllerTablePengelola@index')->name('manager');
 Route::get('/addmanager','ControllerTablePengelola@addmanager')->name('addmanager');
+
+
+
+//dropdown
+Route::get('/addpostmanager', 'ControllerPosManager@create')->name('addpostmanager');
+Route::post('/createpostmanager','ControllerPosManager@store')->name('createpostmanager');
+Route::post('/deletePost/{id}','ControllerPosManager@destroyPost')->name('deletePost');

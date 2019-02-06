@@ -19,6 +19,6 @@ class table_manager extends Model
   'desc_manager'
 ];
 public function position_manager(){
-  return->belongsTo('App\position_manager');
+  return $this->belongsTo('App\position_manager');
 }
 }
