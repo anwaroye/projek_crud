@@ -29,7 +29,12 @@ class ControllerReligion extends Controller
      */
     public function create()
     {
-        //
+        if(Auth::user())
+        {
+           $Posreligion='page.create_religion';
+          return view($Posreligion);
+        }
+        return view('auth.login');
     }
 
     /**
@@ -40,7 +45,14 @@ class ControllerReligion extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+          'position_religion'=>'required'
+        ]);
+        $Posreligion = new religion();
+        $Posreligion->position_religion= $request->get('position_religion');
+        $Posreligion->save();
+        dd($Posreligion);
+
     }
 
     /**
@@ -83,8 +95,10 @@ class ControllerReligion extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyReligion($id)
     {
-        //
+        $Posreligion = religion::findOrFail($id);
+        $Posreligion->delete();
+        return redirect()->route('religon')->with('alert', 'anda yakin ingin menghapus');
     }
 }

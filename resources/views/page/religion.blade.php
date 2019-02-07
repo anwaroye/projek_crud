@@ -14,7 +14,7 @@
           Data Table Example</div>
       <div class="card-body">
           <div class="table-responsive">
-              <a href="" class="btn btn-info btn-sm">+ Tambah  data</a>
+              <a href="{{route('cretaereligion')}}" class="btn btn-info btn-sm">+ Tambah  data</a>
               <hr>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
@@ -33,10 +33,8 @@
                     @foreach($Posreligion as $Posreligions)
                       <tr>
                         <td>{{$no++}}</td>
-                        <td>  <center><a href="">
-                                <button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i></button>
-                              </a>
-                              <form method="POST" action="" style="display: inline-block;">
+                        <td>  <center>
+                              <form method="POST" action="{{route('deleteReligion',[$Posreligions->id])}}" style="display: inline-block;">
                               {{ csrf_field() }}
                                  <button type="submit" onClick="return confirm('Yakin ingin menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
                                </form>

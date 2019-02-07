@@ -58,3 +58,6 @@ Route::get('/addmanager','ControllerTablePengelola@addmanager')->name('addmanage
 Route::get('/addpostmanager', 'ControllerPosManager@create')->name('addpostmanager');
 Route::post('/createpostmanager','ControllerPosManager@store')->name('createpostmanager');
 Route::post('/deletePost/{id}','ControllerPosManager@destroyPost')->name('deletePost');
+Route::post('/cretaereligion','ControllerReligion@store')->name('createreligion');
+Route::get('/addreligion','ControllerReligion@create')->name('addreligion');
+Route::post('/deleteReligion/{id}','ControllerReligion@destroyReligion')->name('deleteReligion');
