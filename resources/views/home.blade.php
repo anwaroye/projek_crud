@@ -150,7 +150,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Data:</h6>
-            <a class="dropdown-item" href="{{route('religon')}}">Agama</a>
+            <a class="dropdown-item" href="{{route('religion')}}">Agama</a>
             <a class="dropdown-item" href="{{route('posManger')}}">Pengelola</a>
 
           </div>

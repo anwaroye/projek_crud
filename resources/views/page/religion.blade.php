@@ -14,7 +14,7 @@
           Data Table Example</div>
       <div class="card-body">
           <div class="table-responsive">
-              <a href="{{route('cretaereligion')}}" class="btn btn-info btn-sm">+ Tambah  data</a>
+              <a href="{{route('addreligion')}}" class="btn btn-info btn-sm">+ Tambah  data</a>
               <hr>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
@@ -23,7 +23,7 @@
                       <tr>
                           <th>no.</th>
                           <th>Action</th>
-                          <th>kategori pengelola</th>
+                          <th>Agama</th>
 
                       </tr>
                   </thead>

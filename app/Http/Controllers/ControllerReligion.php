@@ -46,12 +46,14 @@ class ControllerReligion extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-          'position_religion'=>'required'
+          'option_religion'=>'required'
         ]);
         $Posreligion = new religion();
-        $Posreligion->position_religion= $request->get('position_religion');
+        $Posreligion->option_religion= $request->get('option_religion');
         $Posreligion->save();
-        dd($Posreligion);
+        // dd($Posreligion);
+        return redirect()->route('religion')->with('alert-success', 'data masuk');
+
 
     }
 
@@ -99,6 +101,6 @@ class ControllerReligion extends Controller
     {
         $Posreligion = religion::findOrFail($id);
         $Posreligion->delete();
-        return redirect()->route('religon')->with('alert', 'anda yakin ingin menghapus');
+        return redirect()->route('religion')->with('alert', 'anda yakin ingin menghapus');
     }
 }

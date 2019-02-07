@@ -24,7 +24,7 @@ Route::get('/dashboard','ControllerDashboard@index')->name('dashboard');
 Route::get('/kritikdansaran','ControllerTableKritikSaran@index')->name('kritikdansaran');
 Route::get('/user_android', 'ControllerTableUser@index')->name('user_android');
 Route::get('/posManger','ControllerPosManager@index')->name('posManger');
-Route::get('/religon','ControllerReligion@index')->name('religon');
+Route::get('/religion','ControllerReligion@index')->name('religion');
 
 // ============= benda TABLE ==================
 
@@ -58,6 +58,6 @@ Route::get('/addmanager','ControllerTablePengelola@addmanager')->name('addmanage
 Route::get('/addpostmanager', 'ControllerPosManager@create')->name('addpostmanager');
 Route::post('/createpostmanager','ControllerPosManager@store')->name('createpostmanager');
 Route::post('/deletePost/{id}','ControllerPosManager@destroyPost')->name('deletePost');
-Route::post('/cretaereligion','ControllerReligion@store')->name('createreligion');
+Route::post('/createreligion','ControllerReligion@store')->name('createreligion');
 Route::get('/addreligion','ControllerReligion@create')->name('addreligion');
 Route::post('/deleteReligion/{id}','ControllerReligion@destroyReligion')->name('deleteReligion');
