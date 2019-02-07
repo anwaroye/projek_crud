@@ -21,4 +21,7 @@ class table_manager extends Model
 public function position_manager(){
   return $this->belongsTo('App\position_manager');
 }
+public function religion(){
+  return $this->belongsTo('App\religion');
+}
 }

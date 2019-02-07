@@ -16,7 +16,7 @@ class ControllerPosManager extends Controller
     {
       if (Auth::user())
        {
-         $manager = position_manager::all();
+         $Posmanager = position_manager::all();
          return view('page.position_manager', compact('manager'));
         }
         return view('auth.login');
@@ -32,8 +32,8 @@ class ControllerPosManager extends Controller
     {
       if (Auth::user())
        {
-         $manager = 'page.create_postManager';
-         return view($manager);
+         $Posmanager = 'page.create_postManager';
+         return view($Posmanager);
         }
         return view('auth.login');
     }
@@ -49,10 +49,10 @@ class ControllerPosManager extends Controller
         $this->validate($request,[
         'position_manag'=>'required'
       ]);
-      $manager =new position_manager();
-        $manager->position_manag= $request->get('position_manag');
-        $manager->save();
-        // dd($manager);
+      $Posmanager =new position_manager();
+        $Posmanager->position_manag= $request->get('position_manag');
+        $Posmanager->save();
+        // dd($Posmanager);
         return redirect()->route('posManger')->with('alert-success', 'data masuk');
     }
 
@@ -99,8 +99,8 @@ class ControllerPosManager extends Controller
     public function destroyPost($id)
     {
 
-        $manager = position_manager::findOrFail($id);
-        $manager->delete();
+        $Posmanager = position_manager::findOrFail($id);
+        $Posmanager->delete();
         return redirect()->route('posManger')->with('alert', 'anda yakin ingin menghapus');
       }
 

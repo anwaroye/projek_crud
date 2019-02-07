@@ -30,7 +30,7 @@
 
                   <tbody>
                     @php $no = 1; @endphp
-                    @foreach($manager as $managers)
+                    @foreach($Posmanager as $Posmanagers)
                       <tr>
                         <td>{{$no++}}</td>
                         <td>  <center>
@@ -40,7 +40,7 @@
                                </form>
                                 </center>
                         </td>
-                        <td>{{$managers->position_manag}}</td>
+                        <td>{{$Posmanagers->position_manag}}</td>
 
                       </tr>
                     @endforeach

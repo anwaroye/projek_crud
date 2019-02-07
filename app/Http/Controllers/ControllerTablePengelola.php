@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 use Ramsey\Uuid\Uuid;
 use App\table_manager;
+use App\position_manager;
+
 
 
 class ControllerTablePengelola extends Controller
@@ -21,8 +23,6 @@ class ControllerTablePengelola extends Controller
       if (Auth::user()) {
 
           $manager = table_manager::orderBy('id','DESC')->paginate(100);
-
-
           return view('page.table_pengelola', compact('manager'));
       }
       return view('auth.login');
@@ -38,7 +38,8 @@ class ControllerTablePengelola extends Controller
 
         if (Auth::user()) {
             $manager = 'page.create_manager';
-            return view ($manager);
+            $Posmanager = position_manager::all();
+            return view ($manager)->with(compact('Posmanager'));
       }
       return view('auth.login');
     }
