@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use Ramsey\Uuid\Uuid;
 use App\table_manager;
@@ -58,15 +59,15 @@ class ControllerTablePengelola extends Controller
     {
         $this->validate($request, [
 
-          'name_manager',
-          'gender',
-          'place_of_birth',
-          'birth_manager',
-          'religion',
-          'position_manager',
-          'img_manager',
-          'address',
-          'desc_manager'
+          'name_manager'=>'required',
+          'gender'=>'required',
+          'place_of_birth'=>'required',
+          'birth_manager'=>'required',
+          'religion'=>'required',
+          'position_manager'=>'required',
+          'img_manager'=>'required',
+          'address'=>'required',
+          'desc_manager'=>'required'
         ]);
         $manager = new table_manager();
         $manager->id_manager=Uuid::uuid4();
@@ -76,11 +77,15 @@ class ControllerTablePengelola extends Controller
         $manager->birth_manager = $request->get('birth_manager');
         $manager->religion = $request->get('religion');
         $manager->position_manager = $request->get('position_manager');
-        $manager->img_manager = $request->get('img_manager');
         $manager->address = $request->get('address');
         $manager->desc_manager= $request->get('desc_manager');
+        $file =$request->file('img_manager');
+        $fillName =$file->getClientOriginalName();
+        $request->file('img_manager')->move("image/", $fillName);
+        $manager->img_manager = $fillName;
+
         $manager->save();
-        dd($manager);
+        // dd($manager);
         return redirect()->route('manager')->with('alert-succes', 'data berhasil dimaskukan');
 
     }
@@ -125,8 +130,10 @@ class ControllerTablePengelola extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyManager($id)
     {
-        //
+        $deleteManager = table_manager::findOrFail($id);
+        $deleteManager->delete();
+        return redirect()->route('manager')->with('alert-danger', 'anda yakin ingin menghapusnya');
     }
 }

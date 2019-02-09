@@ -27,9 +27,10 @@
                             <th>jenis kelamin</th>
                             <th>tahun lahir</th>
                             <th>agama</th>
-                            <th>poto</th>
                             <th>alamat</th>
-                            <th>keterangan</th>
+
+                            <th>descripsi</th>
+                            <th>poto</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +40,7 @@
                         <tr>
                             <td>{{$no++ }}</td>
                             <td style="width:100px; text-align: center;">
-                                <form action="{{route('createmanager')}}" method="POST" style="display: inline-block;">
+                                <form action="{{route('deletemanager',[$managers->id])}}" method="POST" style="display: inline-block;">
                                     {{ csrf_field() }}
                                     <button type="submit" onclick="return confirm('yakin ingi menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-1x fa-trash text-danger"></i></button>
                                 </form>

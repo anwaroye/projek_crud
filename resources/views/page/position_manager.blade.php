@@ -27,12 +27,13 @@
                   </thead>
 
                   <tbody>
-                    @php $no = 1; @endphp
+                    @php $no = 1;
+                    @endphp
                     @foreach($Posmanager as $Posmanagers)
                       <tr>
                         <td>{{$no++}}</td>
                         <td>  <center>
-                              <form method="POST" action="{{route('deletePost',[$managers->id])}}" style="display: inline-block;">
+                              <form method="POST" action="{{route('deletePost',[$Posmanagers->id])}}" style="display: inline-block;">
                               {{ csrf_field() }}
                                  <button type="submit" onClick="return confirm('Yakin ingin menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
                                </form>

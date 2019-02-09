@@ -32,7 +32,11 @@ class ControllerKatBenda extends Controller
      */
     public function create()
     {
-        //
+      if (Auth::user()) {
+          $types = 'page.create_kategori_benda';
+          return view ($types);
+      }
+      return view('auth.login');
     }
 
     /**
@@ -43,7 +47,14 @@ class ControllerKatBenda extends Controller
      */
     public function store(Request $request)
     {
-
+      $this->validate($request,[
+        'kat_benda'=>'required'
+      ]);
+      $types = new TypeBenda();
+      $types->kat_benda= $request->get('kat_benda');
+      $types->save();
+      // dd($Posreligion);
+      return redirect()->route('data.benda')->with('alert-success', 'data masuk');
     }
 
     /**
@@ -86,8 +97,12 @@ class ControllerKatBenda extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroykat($id)
     {
-        //
+
+        $typesDelete = TypeBenda::findOrFail($id);
+        $typesDelete->delete();
+        return redirect()->route('data.benda')->with('alert', 'anda yakin ingin menghapus');
+
     }
 }

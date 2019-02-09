@@ -17,7 +17,7 @@ class ControllerPosManager extends Controller
       if (Auth::user())
        {
          $Posmanager = position_manager::all();
-         return view('page.position_manager', compact('manager'));
+         return view('page.position_manager', compact('Posmanager'));
         }
         return view('auth.login');
 
