@@ -152,6 +152,9 @@
             <h6 class="dropdown-header">Data:</h6>
             <a class="dropdown-item" href="{{route('religion')}}">Agama</a>
             <a class="dropdown-item" href="{{route('posManger')}}">Pengelola</a>
+            <a class="dropdown-item" href="{{route('jeniskelamin')}}">jenis kelamin</a>
+
+
 
           </div>
         </li>

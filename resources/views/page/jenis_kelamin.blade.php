@@ -14,31 +14,25 @@
           Data Table Example</div>
       <div class="card-body">
           <div class="table-responsive">
-              <a href="{{route('addpostmanager')}}" class="btn btn-info btn-sm">+ Tambah  data</a>
               <hr>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
                   <thead>
+
                       <tr>
                           <th>no.</th>
-                          <th>Action</th>
-                          <th>kategori pengelola</th>
+
+                          <th><center>jenis kelamin</center></th>
 
                       </tr>
                   </thead>
 
                   <tbody>
                     @php $no = 1; @endphp
-                    @foreach($Posmanager as $Posmanagers)
+                    @foreach($jk as $jks)
                       <tr>
                         <td>{{$no++}}</td>
-                        <td>  <center>
-                              <form method="POST" action="{{route('deletePost',[$managers->id])}}" style="display: inline-block;">
-                              {{ csrf_field() }}
-                                 <button type="submit" onClick="return confirm('Yakin ingin menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
-                               </form>
-                                </center>
-                        </td>
-                        <td>{{$Posmanagers->position_manag}}</td>
+                        <td>{{$jks->jenis_kelamin}}</td>
 
                       </tr>
                     @endforeach

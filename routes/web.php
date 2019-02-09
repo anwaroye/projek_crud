@@ -50,11 +50,13 @@ Route::post('/deleteEvent/{id}', 'ControllerTableEvent@destroyEvent')->name('del
 
 //======= pengelola=================
 Route::get('/manager','ControllerTablePengelola@index')->name('manager');
+Route::post('/createmanager','ControllerTablePengelola@store')->name('createmanager');
 Route::get('/addmanager','ControllerTablePengelola@addmanager')->name('addmanager');
 
 
 
 //dropdown
+Route::get('/jeniskelamin','ControllerJenisKelamin@index')->name('jeniskelamin');
 Route::get('/addpostmanager', 'ControllerPosManager@create')->name('addpostmanager');
 Route::post('/createpostmanager','ControllerPosManager@store')->name('createpostmanager');
 Route::post('/deletePost/{id}','ControllerPosManager@destroyPost')->name('deletePost');

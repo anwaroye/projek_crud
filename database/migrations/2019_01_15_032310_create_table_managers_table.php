@@ -15,7 +15,7 @@ class CreateTableManagersTable extends Migration
     {
         Schema::create('table_managers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_manager',8);
+            $table->string('id_manager');
             $table->string('position_manager')->nullable()->default(null);
             $table->string('name_manager');
             $table->string('gender')->nullable()->default(null);

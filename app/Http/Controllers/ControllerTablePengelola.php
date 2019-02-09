@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
 use App\table_manager;
 use App\position_manager;
+use App\religion;
+use App\jeniskelamin;
 
 
 
@@ -39,7 +41,9 @@ class ControllerTablePengelola extends Controller
         if (Auth::user()) {
             $manager = 'page.create_manager';
             $Posmanager = position_manager::all();
-            return view ($manager)->with(compact('Posmanager'));
+            $Posreligion = religion::all();
+            $jk = jeniskelamin::all();
+            return view ($manager)->with(compact('Posmanager','Posreligion','jk'));
       }
       return view('auth.login');
     }
@@ -52,7 +56,33 @@ class ControllerTablePengelola extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+
+          'name_manager',
+          'gender',
+          'place_of_birth',
+          'birth_manager',
+          'religion',
+          'position_manager',
+          'img_manager',
+          'address',
+          'desc_manager'
+        ]);
+        $manager = new table_manager();
+        $manager->id_manager=Uuid::uuid4();
+        $manager->name_manager = $request->get('name_manager');
+        $manager->gender = $request->get('gender');
+        $manager->place_of_birth = $request->get('place_of_birth');
+        $manager->birth_manager = $request->get('birth_manager');
+        $manager->religion = $request->get('religion');
+        $manager->position_manager = $request->get('position_manager');
+        $manager->img_manager = $request->get('img_manager');
+        $manager->address = $request->get('address');
+        $manager->desc_manager= $request->get('desc_manager');
+        $manager->save();
+        dd($manager);
+        return redirect()->route('manager')->with('alert-succes', 'data berhasil dimaskukan');
+
     }
 
     /**
@@ -63,7 +93,7 @@ class ControllerTablePengelola extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

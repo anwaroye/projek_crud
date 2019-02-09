@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{$no++ }}</td>
                             <td style="width:100px; text-align: center;">
-                                <form action="" method="POST" style="display: inline-block;">
+                                <form action="{{route('createmanager')}}" method="POST" style="display: inline-block;">
                                     {{ csrf_field() }}
                                     <button type="submit" onclick="return confirm('yakin ingi menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-1x fa-trash text-danger"></i></button>
                                 </form>

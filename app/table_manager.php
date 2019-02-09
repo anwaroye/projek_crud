@@ -12,6 +12,7 @@ class table_manager extends Model
   'position_manager',
   'name_manager',
   'gender',
+  'place_of_birth',
   'birth_manager',
   'religion',
   'img_manager',
@@ -23,5 +24,8 @@ public function position_manager(){
 }
 public function religion(){
   return $this->belongsTo('App\religion');
+}
+public function jeniskelamin(){
+  return $this->belongsTo('App\jeniskelamin');
 }
 }
