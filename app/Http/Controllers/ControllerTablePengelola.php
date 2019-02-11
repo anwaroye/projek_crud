@@ -12,8 +12,6 @@ use App\position_manager;
 use App\religion;
 use App\jeniskelamin;
 
-
-
 class ControllerTablePengelola extends Controller
 {
     /**
@@ -23,12 +21,11 @@ class ControllerTablePengelola extends Controller
      */
     public function index()
     {
-      if (Auth::user()) {
-
-          $manager = table_manager::orderBy('id','DESC')->paginate(100);
-          return view('page.table_pengelola', compact('manager'));
-      }
-      return view('auth.login');
+        if (Auth::user()) {
+            $manager = table_manager::orderBy('id', 'DESC')->paginate(100);
+            return view('page.table_pengelola', compact('manager'));
+        }
+        return view('auth.login');
     }
 
     /**
@@ -38,15 +35,14 @@ class ControllerTablePengelola extends Controller
      */
     public function addmanager()
     {
-
         if (Auth::user()) {
             $manager = 'page.create_manager';
             $Posmanager = position_manager::all();
             $Posreligion = religion::all();
             $jk = jeniskelamin::all();
-            return view ($manager)->with(compact('Posmanager','Posreligion','jk'));
-      }
-      return view('auth.login');
+            return view($manager)->with(compact('Posmanager', 'Posreligion', 'jk'));
+        }
+        return view('auth.login');
     }
 
     /**
@@ -87,7 +83,6 @@ class ControllerTablePengelola extends Controller
         $manager->save();
         // dd($manager);
         return redirect()->route('manager')->with('alert-succes', 'data berhasil dimaskukan');
-
     }
 
     /**
@@ -98,7 +93,6 @@ class ControllerTablePengelola extends Controller
      */
     public function show($id)
     {
-
     }
 
     /**
