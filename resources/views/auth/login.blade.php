@@ -6,7 +6,7 @@
 	<link rel="icon" type="image/png" href="../assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Sign Up Page - Material Kit by Creative Tim</title>
+	<title>Admin</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -17,7 +17,7 @@
 
 	<!-- CSS Files -->
     <link href="{{asset('assets_login/css/bootstrap.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('assets_login/css/material-kit.css" rel="stylesheet')}}"/>
+    <link href="{{asset('assets_login/css/material-kit.css' )}}" rel="stylesheet"/>
 
 </head>
 
@@ -25,104 +25,72 @@
 	<nav class="navbar navbar-transparent navbar-absolute">
     	<div class="container">
         	<!-- Brand and toggle get grouped for better mobile display -->
-        	<div class="navbar-header">
-        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
-            		<span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-        		</button>
-        		<a class="navbar-brand" href="http://www.creative-tim.com">Creative Tim</a>
-        	</div>
 
-        	<div class="collapse navbar-collapse" id="navigation-example">
-        		<ul class="nav navbar-nav navbar-right">
-					<li>
-    					<a href="../components-documentation.html" target="_blank">
-    						Components
-    					</a>
-    				</li>
-    				<li>
-						<a href="http://demos.creative-tim.com/material-kit-pro/presentation.html?ref=utp-freebie" target="_blank">
-							<i class="material-icons">unarchive</i> Upgrade to PRO
-						</a>
-    				</li>
-		            <li>
-		                <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-							<i class="fa fa-twitter"></i>
-						</a>
-		            </li>
-		            <li>
-		                <a href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-							<i class="fa fa-facebook-square"></i>
-						</a>
-		            </li>
-					<li>
-		                <a href="https://www.instagram.com/CreativeTimOfficial" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-							<i class="fa fa-instagram"></i>
-						</a>
-		            </li>
-        		</ul>
-        	</div>
+
     	</div>
     </nav>
 
     <div class="wrapper">
-		<div class="header header-filter" style="background-image: url('{{asset('assets_login/img/city.jpg')}}'); background-size: cover; background-position: top center;">
+		<div class="header header-filter" style="background-image: url('{{asset('img/bg-login.jpg')}}'); background-size: cover; background-position: top center;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 						<div class="card card-signup">
-							<form class="form" method="" action="">
+							<form class="form" method="POST" action="{{route('login')}}">
+
 								<div class="header header-success text-center">
 									<h4>Sign Up</h4>
 									<div class="social-line">
-										<a href="#pablo" class="btn btn-simple btn-just-icon">
-											<i class="fa fa-facebook-square"></i>
-										</a>
-										<a href="#pablo" class="btn btn-simple btn-just-icon">
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="#pablo" class="btn btn-simple btn-just-icon">
-											<i class="fa fa-google-plus"></i>
-										</a>
+										<h4>Admin Museum</h4>
 									</div>
 								</div>
-								<p class="text-divider">Or Be Classical</p>
+
+								<p class="text-divider">Bandar Cimanuk</p>
 								<div class="content">
-
-									<div class="input-group">
-										<span class="input-group-addon">
-											<i class="material-icons">face</i>
-										</span>
-										<input type="text" class="form-control" placeholder="First Name...">
-									</div>
-
+										@csrf
 									<div class="input-group">
 										<span class="input-group-addon">
 											<i class="material-icons">email</i>
 										</span>
-										<input type="text" class="form-control" placeholder="Email...">
+										<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+										@if ($errors->has('email'))
+												<span class="invalid-feedback" role="alert">
+														<strong>{{ $errors->first('email') }}</strong>
+												</span>
+										@endif
 									</div>
 
 									<div class="input-group">
 										<span class="input-group-addon">
 											<i class="material-icons">lock_outline</i>
 										</span>
-										<input type="password" placeholder="Password..." class="form-control" />
+										<input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+										@if ($errors->has('password'))
+												<span class="invalid-feedback" role="alert">
+														<strong>{{ $errors->first('password') }}</strong>
+												</span>
+										@endif
+
 									</div>
-
-									<!-- If you want to add a checkbox to this form, uncomment this code
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="optionsCheckboxes" checked>
-											Subscribe to newsletter
-										</label>
-									</div> -->
 								</div>
+								<br>
+								<br>
+
 								<div class="footer text-center">
-									<a href="#pablo" class="btn btn-simple btn-primary btn-lg">Get Started</a>
+									<div class="form-group row mb-0">
+											<div class="col-md-12 ">
+													<button type="submit" class="btn btn-primary">
+															{{ __('Login') }}
+													</button>
+
+													{{-- @if (Route::has('password.request'))
+															<a class="btn btn-link" href="{{ route('password.request') }}">
+																	{{ __('Forgot Your Password?') }}
+															</a>
+													@endif --}}
+											</div>
+									</div>
 								</div>
 							</form>
 						</div>
@@ -131,35 +99,7 @@
 			</div>
 
 			<footer class="footer">
-		        <div class="container">
-		            <nav class="pull-left">
-						<ul>
-							<li>
-								<a href="http://www.creative-tim.com">
-									Creative Tim
-								</a>
-							</li>
-							<li>
-								<a href="http://presentation.creative-tim.com">
-								   About Us
-								</a>
-							</li>
-							<li>
-								<a href="http://blog.creative-tim.com">
-								   Blog
-								</a>
-							</li>
-							<li>
-								<a href="http://www.creative-tim.com/license">
-									Licenses
-								</a>
-							</li>
-						</ul>
-		            </nav>
-		            <div class="copyright pull-right">
-		                &copy; 2016, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
-		            </div>
-		        </div>
+
 		    </footer>
 
 		</div>
@@ -184,7 +124,7 @@
 
 </html>
 
-
+{{--
 @extends('layouts.app')
 @section('content')
 
@@ -260,4 +200,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

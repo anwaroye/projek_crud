@@ -19,9 +19,17 @@
 @stop
 @extends('home')
 @section('table')
+  <div class="container-fluid">
+          <!-- Breadcrumbs-->
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Create event</li>
+          </ol>
+<div class="card col-sm-10 offset-sm-1 mb-3">
 
-<br />
-<br />
+    <div class="card-body">
 <div class="container-fluid">
     <form method="post" action="{{route('createevent')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
@@ -56,5 +64,10 @@
 
 </form>
 </div>
+</div>
+</div>
+</div>
+
+
 
 @endsection

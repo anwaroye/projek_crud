@@ -20,8 +20,17 @@
 
 @extends('home')
 @section('table')
-<br />
-<br />
+  <div class="container-fluid">
+          <!-- Breadcrumbs-->
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Create benda</li>
+          </ol>
+<div class="card col-sm-10 offset-sm-1 mb-3">
+
+    <div class="card-body">
 <div class="container-fluid">
     <form action="{{route('createbenda')}}" enctype="multipart/form-data" method="POST">
         {{ csrf_field() }}
@@ -63,5 +72,7 @@
     </form>
 </div>
 
-
+</div>
+</div>
+</div>
 @endsection
