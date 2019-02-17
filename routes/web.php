@@ -31,6 +31,7 @@ Route::get('/religion','ControllerReligion@index')->name('religion');
 Route::get('/data-benda','ControllerKatBenda@index')->name('data.benda');
 Route::get('/benda', 'ControllerTableBenda@index')->name('benda');
 Route::get('/addbenda', 'ControllerTableBenda@addbenda')->name('addbenda');
+Route::get('/EditBenda{id}','ControllerTableBenda@editBenda')->name('EditBenda');
 Route::post('/createbenda','ControllerTableBenda@store')->name('createbenda');
 Route::post('/updateBenda','ControllerTableBenda@updateBenda')->name('updateBenda');
 Route::post('/deleteBenda/{id}','ControllerTableBenda@destroyBenda')->name('deleteBenda');

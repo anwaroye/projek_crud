@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <textarea class="form-control" type="text" name="object_desc" required="required" id="deskripsi"></textarea>
+        <textarea class="form-control" type="text" name="object_desc" required="required" id=""></textarea>
         <br>
         <div class="row">
             <div class="input-field col s6">

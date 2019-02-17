@@ -29,24 +29,27 @@
         {{ csrf_field() }}
         {{-- @method('PUT') --}}
         <div class="form-group">
-            <label>Nama event</label>
-            <input value="" type="text" class="form-control" id="title_event" required="required" placeholder="Enter nama event" name="title_event">
+            <label>Nama benda</label>
+            <input value={{$EditBenda->object_name}} type="text" class="form-control"  required="required"  name="object_name
+            ">
         </div>
         <div class="form-group">
-            <label>status event</label>
-            <input value="" type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event">
+          <label>Type Benda</label>
+          <select name="type_object" data-placeholder="Please select..." class="form-control" tabindex="1" type="text">
+              @foreach($types as $type)
+              <option value="{{$type->kat_benda}}">{{$type->kat_benda}}</option>
+              @endforeach
+          </select>
         </div>
         <div class="form-group">
-          <textarea value="" class="form-control" type="textarea" name="desc_event" required="required" id="deskripsi" rows="7"></textarea>
+          <label>Deskripsi Benda</label>
+          <textarea value="{{$EditBenda->object_desc}}" class="form-control" type="textarea" name="object_desc" required="required" id="object_desc" rows="7"></textarea>
 
         </div>
-
-
-
         <div class="form-grup">
             <label for="file">Select File</label>
             {{-- <input value="{{$events->img_event}}" type="file" name="img_event" id="file" value=""> --}}
-             <img src="" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
+             <img src="{{ asset('image/'.$EditBenda->object_img) }}" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
 
         </div>
         <div class="row">

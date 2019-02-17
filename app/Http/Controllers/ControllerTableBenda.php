@@ -95,9 +95,16 @@ class ControllerTableBenda extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editBenda($id)
     {
-        //
+      if(Auth::user())
+        {
+          $benda = 'page.update_benda';
+          $types = TypeBenda::all();
+          $EditBenda = table_object::findOrFail($id);
+          return view($benda)->with(compact('EditBenda','types'));
+        }
+        return view('auth.login');
     }
 
     /**
@@ -110,20 +117,22 @@ class ControllerTableBenda extends Controller
     public function updateBenda(Request $request, $id)
     {
       $updateBenda = table_event::findOrFail($id);
-      $updateBenda->title_event=$request->title_event;
-      $updateBenda->status_event=$request->status_event;
-      $updateBenda->desc_event=$request->desc_event;
-      if ($request->file('img_event')=="")
+      $updateBenda->object_name=$request->object_name;
+      $updateBenda->type_object=$request->type_object;
+      $updateBenda->object_desc=$request->object_desc;
+      if (empty($request->file('img_event')))
        {
-         $updateBenda->img_event=$updateBenda->img_event;
+         $updateBenda->object_img=$updateBenda->object_img;
       }
       else {
+        unlink('image/'.$updateBenda->object_img); //menghapus file lama
         $file = $request->file('img_event');
-        $fillName = $file->getClientOriginalName();
-        $request->file('img_event')->move("image/", $fillName);
-        $updateBenda->img_event= $fillName;
+        $ext = $file->getClientOriginalExtension();
+        $newName = rand(100000,1001238912).".".$ext;
+        $file->move('img/', $newName);
+        $updateBenda->img_event= $newName;
       }
-      $updateBenda->update();
+      // $updateBenda->update();
       // dd('$updateBenda');
       // $updateBenda->img_event->$request->img_event;
       $success = $updateBenda->save();
@@ -134,6 +143,8 @@ class ControllerTableBenda extends Controller
       }else{
         return redirect()->route('EditEvent')->with('alert', 'Data tidak berhasil dimasukan');
       }
+      $updateBenda->reset();
+      return redirect()->route('EditEvent');
     }
 
     /**
