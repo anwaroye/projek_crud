@@ -166,33 +166,14 @@
       </ul>
 {{--=================================================CONTENT==========  --}}
 <div id="content-wrapper">
+  <script type="text/javascript">
+  (function($){
+    $(function(){
+      $('.button-collapse').sideNav();
+    });
+  })(jQuery);
 
-    <!-- Icon Cards-->
-
-
-    <!-- Area Chart Example-->
-    @section('js')
-    <script type="text/javascript">
-
-          function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#showgambar').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#inputgambar").change(function () {
-            readURL(this);
-        });
-
-    </script>
-
-    @stop
+  </script>
     @yield('table')
 
     <!-- DataTables Example -->
@@ -248,6 +229,12 @@
 
 
     <!-- Bootstrap core JavaScript-->
+    <script src="{{asset('app.js')}}">
+
+    </script>
+    <script src="{{asset('bootstrap.js')}}">
+
+    </script>
     <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -258,13 +245,6 @@
     <script src="{{asset('assets/vendor/chart.js/Chart.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datatables/jquery.dataTables.js')}}"></script>
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
-    <script>
-    var konten = document.getElementById("deskripsi");
-    CKEDITOR.replace(konten,{
-    language:'en-gb'
-    });
-    CKEDITOR.config.allowedContent = true;
-    </script>
     <!-- Custom scripts for all pages-->
     <script src="{{asset('assets/js/sb-admin.min.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -91,8 +91,9 @@ class ControllerTableEvent extends Controller
         $request->file('img_event')->move("image/", $fillName);
         // ennddddd
         $event->img_event = $fillName;
+        // dd($event);
+
         $event->save();
-       // dd($event);
         return redirect()->route('event')->with('alert-succes', 'data berhasil');
     }
 
@@ -152,7 +153,7 @@ class ControllerTableEvent extends Controller
         $updateEvent->img_event= $fillName;
       }
       $updateEvent->update();
-      // dd('$updateEvent');
+      // dd($updateEvent);
       // $updateEvent->img_event->$request->img_event;
       $success = $updateEvent->save();
       if ($success){

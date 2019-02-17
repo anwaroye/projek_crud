@@ -41,13 +41,11 @@
             <label>status event</label>
             <input type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event">
         </div>
-        <textarea class="form-control" type="text" name="desc_event" required="required" id="deskripsi"></textarea>
+        <label>deskripsi event</label>
+        <textarea class="form-control" type="text" name="desc_event" required="required" rows="12"></textarea>
         <br>
         <div class="form-grup">
             <div class="row">
-        <div class="col s6">
-            <img src="http://placehold.it/100x150" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
-        </div>
     </div>
             <br>
             <div class="row">

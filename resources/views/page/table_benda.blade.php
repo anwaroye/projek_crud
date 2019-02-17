@@ -42,7 +42,10 @@
                             {{ csrf_field() }}
                             <button type="submit" onclick="return confirm('yakin ingi menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-1x fa-trash text-danger"></i></button>
                           </form>
-                          <a href="{{route('EditBenda',[$bendas->id])}}"><i class="fa fa-1x fa-edit text-green"></i></a>
+                          <form class="btn btn-outline-info btn-sm" style="display: inline-block;">
+                              <a href="{{route('EditBenda',[$bendas->id])}}" ><i class="fa fa-1x fa-edit btn-green" ></i></a>
+                          </form>
+
 
                         </td>
                         <td>{{$bendas->id_object}}</td>

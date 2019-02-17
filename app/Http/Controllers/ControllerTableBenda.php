@@ -116,35 +116,41 @@ class ControllerTableBenda extends Controller
      */
     public function updateBenda(Request $request, $id)
     {
-      $updateBenda = table_event::findOrFail($id);
+      $updateBenda = table_object::findOrFail($id);
       $updateBenda->object_name=$request->object_name;
       $updateBenda->type_object=$request->type_object;
       $updateBenda->object_desc=$request->object_desc;
-      if (empty($request->file('img_event')))
+      if (empty($request->file('object_img')))
        {
          $updateBenda->object_img=$updateBenda->object_img;
       }
       else {
         unlink('image/'.$updateBenda->object_img); //menghapus file lama
-        $file = $request->file('img_event');
-        $ext = $file->getClientOriginalExtension();
+        $file = $request->file('object_img');
+        // $fillName = $file->getClientOriginalName();
+        // $request->file('object_img')->move("image/",$fillName);
+
+        // $updateBenda->object_img=$fillName;
+        // $updateBenda->save();
+        $ext = $file->getClientOriginalName();
         $newName = rand(100000,1001238912).".".$ext;
-        $file->move('img/', $newName);
-        $updateBenda->img_event= $newName;
+        $file->move('image/', $newName);
+        $updateBenda->object_img= $newName;
       }
       // $updateBenda->update();
-      // dd('$updateBenda');
+      // dd($updateBenda);
       // $updateBenda->img_event->$request->img_event;
       $success = $updateBenda->save();
+      // dd($updateBenda);
       if ($success){
         //return untuk $success
-        return redirect()->route('event')->with('alert', 'Data Berhasil dimasukan');
+        return redirect()->route('benda')->with('alert', 'Data Berhasil dimasukan');
 
       }else{
-        return redirect()->route('EditEvent')->with('alert', 'Data tidak berhasil dimasukan');
+        return redirect()->route('EditBenda')->with('alert', 'Data tidak berhasil dimasukan');
       }
       $updateBenda->reset();
-      return redirect()->route('EditEvent');
+      return redirect()->route('EditBenda');
     }
 
     /**
