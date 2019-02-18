@@ -52,7 +52,7 @@
                         <td>{{$bendas->object_name}}</td>
                         <td>{{$bendas->type_object}}</td>
                         <td>{{$bendas->object_desc}}</td>
-                        <td><img src="{{asset('image/'.$bendas->object_img)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
+                        <td><img src="{{asset('image/img_object/'.$bendas->object_img)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
 
 
                         </td>

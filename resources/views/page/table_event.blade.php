@@ -50,7 +50,7 @@
                         <td>{{$events->title_event}}</td>
                         <td>{{$events->desc_event}}</td>
                         <td>{{$events->status_event}}</td>
-                        <td><img src="{{asset('image/'.$events->img_event)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
+                        <td><img src="{{asset('image/img_event/'.$events->img_event)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
 
                         </td>
 

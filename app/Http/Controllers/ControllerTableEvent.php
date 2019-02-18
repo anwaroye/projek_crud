@@ -86,9 +86,10 @@ class ControllerTableEvent extends Controller
         $event->status_event = $request->get('status_event');
         $event->desc_event = $request->get('desc_event');
         // proses penampilan gambar
+
         $file =$request->file('img_event');
         $fillName =$file->getClientOriginalName();
-        $request->file('img_event')->move("image/", $fillName);
+        $request->file('img_event')->move("image/img_event/", $fillName);
         // ennddddd
         $event->img_event = $fillName;
         // dd($event);
@@ -142,30 +143,56 @@ class ControllerTableEvent extends Controller
       $updateEvent->title_event=$request->title_event;
       $updateEvent->status_event=$request->status_event;
       $updateEvent->desc_event=$request->desc_event;
-      if ($request->file('img_event')=="")
-       {
-         $updateEvent->img_event=$updateEvent->img_event;
+
+
+
+      if(empty($request->file('img_event')))
+      {
+        $updateEvent->img_event = $updateEvent->img_event;
       }
-      else {
+      else{
+        unlink('image/img_event/'.$updateEvent->img_event);
         $file = $request->file('img_event');
-        $fillName = $file->getClientOriginalName();
-        $request->file('img_event')->move("image/", $fillName);
-        $updateEvent->img_event= $fillName;
+        $ext = $file->getClientOriginalName();
+        $newName = rand(100000,1001238912).".".$ext;
+        $file->move('image/img_event/',$newName);
+        $updateEvent->img_event=$newName;
       }
-      $updateEvent->update();
-      // dd($updateEvent);
-      // $updateEvent->img_event->$request->img_event;
       $success = $updateEvent->save();
-      if ($success){
-        //return untuk $success
-        return redirect()->route('event')->with('alert', 'Data Berhasil dimasukan');
+      if($success){
+        return redirect()->route('event')->with('alert', 'data berhasil dimasukan');
 
       }else{
-        return redirect()->route('EditEvent')->with('alert', 'Data tidak berhasil dimasukan');
+        return redirect()->route('EditEvent')->with('alert','data tidak berhasil dimasukan');
+      }
+        $updateEvent->reset();
+        return redirect()->route('EditEvent');
       }
 
+      // if ($request->file('img_event')=="")
+      //  {
+      //    $updateEvent->img_event=$updateEvent->img_event;
+      // }
+      // else {
+      //   $file = $request->file('img_event');
+      //   $fillName = $file->getClientOriginalName();
+      //   $request->file('img_event')->move("image/img_event/", $fillName);
+      //   $updateEvent->img_event= $fillName;
+      // }
+      // $updateEvent->update();
+      // // dd($updateEvent);
+      // // $updateEvent->img_event->$request->img_event;
+      // $success = $updateEvent->save();
+      // if ($success){
+      //   //return untuk $success
+      //   return redirect()->route('event')->with('alert', 'Data Berhasil dimasukan');
+      //
+      // }else{
+      //   return redirect()->route('EditEvent')->with('alert', 'Data tidak berhasil dimasukan');
+      // }
+
         //
-    }
+
 
     /**
      * Remove the specified resource from storage.

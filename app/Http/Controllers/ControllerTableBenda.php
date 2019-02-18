@@ -71,7 +71,7 @@ class ControllerTableBenda extends Controller
         $benda->object_desc = $request->get('object_desc');
         $file =$request->file('object_img');
         $fillName =$file->getClientOriginalName();
-        $request->file('object_img')->move("image/", $fillName);
+        $request->file('object_img')->move("image/img_object/", $fillName);
         $benda->object_img = $fillName;
         $benda->save();
         // dd($benda);
@@ -125,16 +125,11 @@ class ControllerTableBenda extends Controller
          $updateBenda->object_img=$updateBenda->object_img;
       }
       else {
-        unlink('image/'.$updateBenda->object_img); //menghapus file lama
+        unlink('image/img_object/'.$updateBenda->object_img); //menghapus file lama
         $file = $request->file('object_img');
-        // $fillName = $file->getClientOriginalName();
-        // $request->file('object_img')->move("image/",$fillName);
-
-        // $updateBenda->object_img=$fillName;
-        // $updateBenda->save();
         $ext = $file->getClientOriginalName();
         $newName = rand(100000,1001238912).".".$ext;
-        $file->move('image/', $newName);
+        $file->move('image/img_object/', $newName);
         $updateBenda->object_img= $newName;
       }
       // $updateBenda->update();
