@@ -14,6 +14,9 @@ class table_event extends Model
   'title_event',
   'status_event',
   'desc_event',
-  'img_event'
+  'img_event',
+  'time_event',
+  'end_event',
+  'location_event'
 ];
 }
