@@ -7,7 +7,7 @@
         <li class="breadcrumb-item">
             <a href="{{route('dashboard')}}">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Create benda</li>
+        <li class="breadcrumb-item active">Update benda</li>
     </ol>
     <div class="card col-sm-10 offset-sm-1 mb-3">
         <div class="card-body">

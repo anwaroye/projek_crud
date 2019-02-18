@@ -103,7 +103,17 @@ class ControllerTablePengelola extends Controller
      */
     public function edit($id)
     {
-        //
+        if(Auth::user())
+        {
+          $manager = 'page.update_manager';
+          $EditGender = jeniskelamin::all();
+          $EditReligion = religion::all();
+          $EditManager = table_object::findOrFail($id);
+          return view($manager)->with(compact('EditGender','EditReligion'));
+        }
+        return view('auth.login');
+ 
+
     }
 
     /**

@@ -44,7 +44,7 @@
                                     {{ csrf_field() }}
                                     <button type="submit" onclick="return confirm('yakin ingi menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-1x fa-trash text-danger"></i></button>
                                 </form>
-                                <a href="#"><i class="fa fa-1x fa-edit text-green"></i></a>
+                                <a href=""><i class="fa fa-1x fa-edit text-green"></i></a>
 
                             </td>
                             <td>{{$managers->id_manager}}</td>

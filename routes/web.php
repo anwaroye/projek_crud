@@ -54,6 +54,7 @@ Route::get('/manager','ControllerTablePengelola@index')->name('manager');
 Route::post('/createmanager','ControllerTablePengelola@store')->name('createmanager');
 Route::get('/addmanager','ControllerTablePengelola@addmanager')->name('addmanager');
 Route::post('/deletemanager/{id}','ControllerTablePengelola@destroyManager')->name('deletemanager');
+Route::get('/update_manager/{id}','ControllerTablePengelola@edit')->name('update_manager');
 
 
 
