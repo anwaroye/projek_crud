@@ -12,5 +12,5 @@ class table_criticism extends Model
       'email_cs',
       'criticism',
       'sugestion'
-    ];
+    ];  
 }

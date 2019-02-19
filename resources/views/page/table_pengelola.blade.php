@@ -55,7 +55,7 @@
                             <td>{{$managers->religion}}</td>
                             <td>{{$managers->address}}</td>
                             <td>{{$managers->desc_manager}}</td>
-                            <td><img src="{{asset('image/'.$managers->img_manager)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
+                            <td><img src="{{asset('image/img_manager/'.$managers->img_manager)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
 
 
                             </td>

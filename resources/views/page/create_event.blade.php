@@ -20,9 +20,10 @@
             <input type="text" class="form-control" id="title_event" required="required" placeholder="Enter nama event" name="title_event">
         </div>
         <div class="form-group">
-            <label>status event</label>
-            <input type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event">
+            <label>tempat</label>
+            <input type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="location_event">
         </div>
+
         <label>deskripsi event</label>
         <textarea class="form-control" type="text" name="desc_event" required="required" rows="12"></textarea>
         <br>

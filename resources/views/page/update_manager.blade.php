@@ -74,6 +74,10 @@
                           <br>
                           <div class="form-grup">
                               <div class="row justify-content-sm-center">
+                                <div class="form-grup col-sm-5">
+                                    <img src="{{ asset('image/img_manager/'.$EditManager->img_manager) }}" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
+
+                                </div>
 
                               </div>
                               <br>

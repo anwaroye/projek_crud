@@ -76,14 +76,14 @@ class ControllerTableEvent extends Controller
       $this->validate($request,[
         // 'id_event' =>'required',
         'title_event'=>'required',
-        'status_event'=>'required',
+        'location_event'=>'required',
         'desc_event'=>'required',
        'img_event'=>'required',
       ]);
         $event = new table_event();
         $event->id_event =Uuid::uuid4(); // toString()
         $event->title_event = $request->get('title_event');
-        $event->status_event = $request->get('status_event');
+        $event->location_event = $request->get('location_event');
         $event->desc_event = $request->get('desc_event');
         // proses penampilan gambar
 
@@ -141,7 +141,7 @@ class ControllerTableEvent extends Controller
     {
       $updateEvent = table_event::findOrFail($id);
       $updateEvent->title_event=$request->title_event;
-      $updateEvent->status_event=$request->status_event;
+      $updateEvent->location_event=$request->location_event;
       $updateEvent->desc_event=$request->desc_event;
 
 

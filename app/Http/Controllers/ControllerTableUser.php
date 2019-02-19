@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use App\table_user;
 use Illuminate\Http\Request;
 
 class ControllerTableUser extends Controller
@@ -13,8 +14,13 @@ class ControllerTableUser extends Controller
      */
     public function index()
     {
-        $userA ="page.table_user";
-        return view ($userA);
+      if (Auth::user())
+      {
+        $android = table_user::orderBy('id_user','DESC')->paginate(100);
+        return view('page.table_user',compact('android'));
+        // code...
+      }
+      return view('auth.login');
     }
 
     /**
@@ -80,6 +86,10 @@ class ControllerTableUser extends Controller
      */
     public function destroy($id)
     {
-        //
+      {
+        $deleteandro = table_user::findOrFail($id);
+        $deleteandro ->delete();
+        return redirect()->route('android')->with('alert', 'anda yakin ingin menghapus');
+      }
     }
 }

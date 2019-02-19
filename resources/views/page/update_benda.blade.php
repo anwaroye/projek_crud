@@ -12,7 +12,7 @@
     <div class="card col-sm-10 offset-sm-1 mb-3">
         <div class="card-body">
             <div class="container-fluid">
-                <form method="post" action="{{route('updateManager',$EditBenda->id)}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('updateBenda',$EditBenda->id)}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{-- @method('PUT') --}}
                     <div class="form-group">
@@ -36,7 +36,7 @@
                     <div class="col-sm-12">
                       <div class="row">
                         <div class="form-grup col-sm-5">
-                            <img src="{{ asset('image/'.$EditBenda->object_img) }}" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
+                            <img src="{{ asset('image/img_object/'.$EditBenda->object_img) }}" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
 
                         </div>
 
@@ -50,16 +50,9 @@
 
                           </div>
                       </div>
-
-
-
                     </div>
 
-                    <div class="row">
 
-                        <br>
-
-            </div>
         </div>
     </div>
 </div>

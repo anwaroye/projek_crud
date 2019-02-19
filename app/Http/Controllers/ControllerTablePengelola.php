@@ -77,7 +77,7 @@ class ControllerTablePengelola extends Controller
         $manager->desc_manager= $request->get('desc_manager');
         $file =$request->file('img_manager');
         $fillName =$file->getClientOriginalName();
-        $request->file('img_manager')->move("image/", $fillName);
+        $request->file('img_manager')->move("image/img_manager/", $fillName);
         $manager->img_manager = $fillName;
 
         $manager->save();
@@ -136,12 +136,9 @@ class ControllerTablePengelola extends Controller
       $updateManager->position_manager=$request->position_manager;
       $updateManager->desc_manager=$request->desc_manager;
 
-
-
-
       if (empty($request->file('img_manager')))
        {
-         $updateManager->img_manager=$updateManager->object_img;
+         $updateManager->img_manager=$updateManager->img_manager;
       }
       else {
         unlink('image/img_manager/'.$updateManager->img_manager); //menghapus file lama

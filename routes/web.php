@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pengelola','ControllerTablePengelola@index')->name('pengelola');
 Route::get('/dashboard','ControllerDashboard@index')->name('dashboard');
 Route::get('/kritik','ControllerTableKritikSaran@index')->name('kritik');
-Route::get('/user_android', 'ControllerTableUser@index')->name('user_android');
+Route::get('/android', 'ControllerTableUser@index')->name('android');
 Route::get('/posManger','ControllerPosManager@index')->name('posManger');
 Route::get('/religion','ControllerReligion@index')->name('religion');
 
@@ -74,3 +74,11 @@ Route::post('/deletePost/{id}','ControllerPosManager@destroyPost')->name('delete
 Route::post('/createreligion','ControllerReligion@store')->name('createreligion');
 Route::get('/addreligion','ControllerReligion@create')->name('addreligion');
 Route::post('/deleteReligion/{id}','ControllerReligion@destroyReligion')->name('deleteReligion');
+
+
+//kritik
+Route::post('/deletekritik/{id}','ControllerTableKritikSaran@destroy')->name('deletekritik');
+
+
+//user user_android
+Route::post('/delete/{id}','ControllerTableUser@destroy')->name('delete');

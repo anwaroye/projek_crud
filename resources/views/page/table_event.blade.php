@@ -24,7 +24,7 @@
                         <th>Id Event</th>
                         <th>Nama Event</th>
                         <th>Deskripsi event</th>
-                        <th>Status Event</th>
+                        <th>tempat </th>
                         <th>Image Event</th>
                     </tr>
                 </thead>
@@ -47,7 +47,7 @@
                         <td>{{$events->id_event}}</td>
                         <td>{{$events->title_event}}</td>
                         <td>{{$events->desc_event}}</td>
-                        <td>{{$events->status_event}}</td>
+                        <td>{{$events->location_event}}</td>
                         <td><img src="{{asset('image/img_event/'.$events->img_event)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
 
                         </td>

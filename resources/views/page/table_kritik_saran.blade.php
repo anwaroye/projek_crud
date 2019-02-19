@@ -15,16 +15,17 @@
               Data Table Example</div>
             <div class="card-body">
               <div class="table-responsive">
-                
+
                 <hr>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>No</th>
                       <th>Aksi</th>
+                      <th>nama</th>
+                      <th>Email</th>
                       <th>kritik</th>
-                      <th>Deskripsi</th>
-                      <th>Gambar</th>
+                      <th>saran</th>
 
                     </tr>
                   </thead>
@@ -33,20 +34,23 @@
                     @php $no =1;
                     @endphp
 
-                    @foreach ($museum as  $museums)
+                    @foreach ($kritik as  $kritiks)
                       <tr>
                         <td>{{$no++ }}</td>
                         <td style="width:100px; text-align: center;">
-                          <form method="POST" action="{{route('deletemus',[$museums->id])}}" style="display: inline-block;">
+                          <form method="POST" action="{{route('deletekritik',[$kritiks->id])}}" style="display: inline-block;">
                             {{ csrf_field() }}
                                <button type="submit" onClick="return confirm('Yakin ingin menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
                              </form>
                             {{-- <a href="{{route('deleteEvent')}}"><i class="fa fa-1x fa-trash text-danger"></i></a> --}}
                             {{-- <a href=""><i class="fa fa-1x fa-edit text-green"></i></a> --}}
                         </td>
-                        <td>{{$museums->title_inf}}</td>
-                        <td>{{$museums->desc_inf}}</td>
-                        <td><img src="{{asset('image/'.$museums->img_inf)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
+                        <td>{{$kritiks->name_cs}}</td>
+                        <td>{{$kritiks->email_cs}}</td>
+                        <td>{{$kritiks->criticism}}</td>
+                        <td>{{$kritiks->sugestion}}</td>
+
+
 
 
                       </tr>

@@ -126,7 +126,7 @@
             <span>Kritik Dan Saran</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('user_android')}}">
+          <a class="nav-link" href="{{route('android')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>User</span></a>
         </li>

@@ -86,6 +86,10 @@ class ControllerTableKritikSaran extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $deletekritik = table_criticism::findOrFail($id);
+        $deletekritik ->delete();
+        return redirect()->route('kritik')->with('alert', 'anda yakin ingin menghapus');
+
     }
 }

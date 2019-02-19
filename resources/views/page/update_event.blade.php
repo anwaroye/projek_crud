@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
             <label>status event</label>
-            <input value="{{$EditEvent->status_event}}" type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event">
+            <input value="{{$EditEvent->location_event}}" type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event">
         </div>
         <div class="form-group">
           <textarea value="" class="form-control" type="textarea" name="desc_event" required="required"  rows="7">{{$EditEvent->desc_event}}</textarea>
@@ -54,14 +54,21 @@
         <div class="form-grup">
             <label for="file">Select File</label>
             {{-- <input value="{{$events->img_event}}" type="file" name="img_event" id="file" value=""> --}}
-             <img src="{{ asset('image/'.$EditEvent->img_event) }}" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
-
+             {{-- <img src="{{ asset('image/img_event/'.$EditEvent->img_event) }}" id="showgambar" style="max-width:200px;max-height:200px;float:left;" /> --}}
         </div>
         <div class="row">
+          <div class="col s6">
+             <img src="{{ asset('image/img_event/'.$EditEvent->img_event) }}" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
+
+          </div>
+
        <div class="input-field col s6">
          <input type="file" id="inputgambar" name="img_event" class="validate"/ >
        </div>
         <br>
+      </div>
+      <br>
+      <br>
 
 
 
@@ -73,6 +80,6 @@
 </div>
 </div>
 </div>
-</div>
+
 
 @endsection
