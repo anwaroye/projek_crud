@@ -44,23 +44,13 @@
 
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
+
       </form>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
         <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-bell fa-fw"></i>
-            <span class="badge badge-danger">9+</span>
-          </a>
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
@@ -69,10 +59,7 @@
           </div>
         </li>
         <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-envelope fa-fw"></i>
-            <span class="badge badge-danger">7</span>
-          </a>
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
@@ -124,7 +111,7 @@
             <span>Table event</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('informasi')}}">
+          <a class="nav-link" href="{{route('museum')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Informasi Museum</span></a>
         </li>
@@ -134,7 +121,7 @@
             <span>Pengelola</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('kritikdansaran')}}">
+          <a class="nav-link" href="{{route('kritik')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Kritik Dan Saran</span></a>
         </li>
@@ -187,7 +174,7 @@
   <footer class="sticky-footer">
     <div class="container my-auto">
       <div class="copyright text-center my-auto">
-        <span>Copyright © Admin Projek 1 2019</span>
+        <span>Copyright © Admin Projek 3 2019</span>
       </div>
     </div>
   </footer>

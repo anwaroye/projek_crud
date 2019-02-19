@@ -20,31 +20,38 @@
                     <label>Nama</label>
                     <input type="text" class="form-control"  required="required" placeholder="Enter nama " name="name_manager">
                 </div>
-                <div class="form-group col-sm-2">
+                <div class="form-group col-sm-4">
                         <label>tempat Lahir</label>
                         <input type="text" class="form-control"  required="required" placeholder="Tempat lahir" name="place_of_birth">
                     </div>
-                <div class="form-group col-sm-2">
+                <div class="form-group col-sm-3">
                         <label>Tanggal Lahir</label>
-                        <input type="text" class="form-control"  required="required" placeholder="( 22121997 )" name="birth_manager">
+                        <input type="date" class="form-control"  required="required" placeholder="( 22121997 )" name="birth_manager">
                     </div>
-                    <div class="form-group col-sm-2">
-                        <label>jenis kelamin</label>
-                        <select name="gender" data-placeholder="Please select..." class="form-control" tabindex="1" type="text">
-                            @foreach($jk as $jks)
-                            <option value="{{$jks->jenis_kelamin}}">{{$jks->jenis_kelamin}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group col-sm-3">
-                        <label>Agama</label>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-5">
+                  <label>jenis kelamin</label>
+                  <select name="gender" data-placeholder="Please select..." class="form-control" tabindex="1" type="text">
+                    <option value="">-- pilih kategori  --</option>
 
-                            <select name="religion" data-placeholder="Please select..." class="form-control" tabindex="1" type="text">
-                                @foreach($Posreligion as $PosTwo)
-                                <option value="{{$PosTwo->option_religion}}">{{$PosTwo->option_religion}}</option>
-                                @endforeach
-                            </select>
-                    </div>
+                      @foreach($jk as $jks)
+                      <option value="{{$jks->jenis_kelamin}}">{{$jks->jenis_kelamin}}</option>
+                      @endforeach
+                  </select>
+              </div>
+              <div class="form-group col-sm-5">
+                  <label>Agama</label>
+
+                      <select name="religion" data-placeholder="Please select..." class="form-control" tabindex="1" type="text">
+                        <option value="">-- pilih kategori --</option>
+
+                          @foreach($Posreligion as $PosTwo)
+                          <option value="{{$PosTwo->option_religion}}">{{$PosTwo->option_religion}}</option>
+                          @endforeach
+                      </select>
+              </div>
+
             </div>
 
             <div class="row">
@@ -60,6 +67,8 @@
                 {{-- <input type="text" class="form-control" id="status_event" required="required" placeholder="Enter status event" name="status_event"> --}}
                 <div class="col-sm-12">
                     <select name="position_manager" data-placeholder="Please select..." class="form-control" tabindex="1" type="text">
+                      <option value="">-- pilih kategori benda --</option>
+
                         @foreach($Posmanager as $Pos)
                         <option value="{{$Pos->position_manag}}">{{$Pos->position_manag}}</option>
                         @endforeach

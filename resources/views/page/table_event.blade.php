@@ -17,9 +17,7 @@
             <a href="{{route('addevent')}}" class="btn btn-info btn-sm">+ Tambah event</a>
             <hr>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
                 <thead>
-
                     <tr>
                         <th>no.</th>
                         <th>Action</th>

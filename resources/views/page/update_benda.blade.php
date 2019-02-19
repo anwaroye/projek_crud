@@ -12,7 +12,7 @@
     <div class="card col-sm-10 offset-sm-1 mb-3">
         <div class="card-body">
             <div class="container-fluid">
-                <form method="post" action="{{route('updateBenda',$EditBenda->id)}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('updateManager',$EditBenda->id)}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{-- @method('PUT') --}}
                     <div class="form-group">

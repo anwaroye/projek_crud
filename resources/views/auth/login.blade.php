@@ -39,7 +39,7 @@
 							<form class="form" method="POST" action="{{route('login')}}">
 
 								<div class="header header-success text-center">
-									<h4>Sign Up</h4>
+									<h4>Sign in</h4>
 									<div class="social-line">
 										<h4>Admin Museum</h4>
 									</div>

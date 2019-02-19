@@ -14,46 +14,44 @@
               Data Table Example</div>
             <div class="card-body">
               <div class="table-responsive">
+                <a href="{{route('addmuseum')}}" class="btn btn-info btn-sm">+ Tambah data</a>
+                <hr>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Id Event</th>
-                      <th>Action</th>
-                      <th>Nama Event</th>
-                      <th>Image Event</th>
+                      <th>No</th>
+                      <th>Aksi</th>
+                      <th>Nama Museum</th>
+                      <th>Deskripsi</th>
+                      <th>Gambar</th>
 
-                      <th>Deskripsi event</th>
-                      <th>Status Event</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
 
-                    <tr>
-                      <td>Michael Bruce</td>
-                      <td>Javascript Developer</td>
-                      <td>Singapore</td>
-                      <td>29</td>
-                      <td>2011/06/27</td>
-                      <td>$183,000</td>
-                    </tr>
-                    <tr>
-                      <td>Donna Snider</td>
-                      <td>Customer Support</td>
-                      <td>New York</td>
-                      <td>27</td>
-                      <td>2011/01/25</td>
-                      <td>$112,000</td>
-                    </tr>
+                  <tbody>
+                    @php $no =1;
+                    @endphp
+
+                    @foreach ($museum as  $museums)
+                      <tr>
+                        <td>{{$no++ }}</td>
+                        <td style="width:100px; text-align: center;">
+                          <form method="POST" action="{{route('deletemus',[$museums->id])}}" style="display: inline-block;">
+                            {{ csrf_field() }}
+                               <button type="submit" onClick="return confirm('Yakin ingin menghapus data ini ?');" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                             </form>
+                            {{-- <a href="{{route('deleteEvent')}}"><i class="fa fa-1x fa-trash text-danger"></i></a> --}}
+                            {{-- <a href=""><i class="fa fa-1x fa-edit text-green"></i></a> --}}
+                        </td>
+                        <td>{{$museums->title_inf}}</td>
+                        <td>{{$museums->desc_inf}}</td>
+                        <td><img src="{{asset('image/'.$museums->img_inf)}}" style="max-height:200px;max-width:100px;margin-top:10px;"></td>
+
+
+                      </tr>
+
+                    @endforeach
+
                   </tbody>
                 </table>
               </div>

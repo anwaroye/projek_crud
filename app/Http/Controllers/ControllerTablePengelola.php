@@ -106,13 +106,14 @@ class ControllerTablePengelola extends Controller
         if(Auth::user())
         {
           $manager = 'page.update_manager';
-          $EditGender = jeniskelamin::all();
-          $EditReligion = religion::all();
-          $EditManager = table_object::findOrFail($id);
-          return view($manager)->with(compact('EditGender','EditReligion'));
+          $jk = jeniskelamin::all();
+          $PositionManager = position_manager::all();
+          $Posreligion = religion::all();
+          $EditManager = table_manager::findOrFail($id);
+          return view($manager)->with(compact('EditManager','jk','Posreligion','PositionManager'));
         }
         return view('auth.login');
- 
+
 
     }
 
@@ -125,7 +126,46 @@ class ControllerTablePengelola extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $updateManager = table_manager::findOrFail($id);
+      $updateManager->name_manager=$request->name_manager;
+      $updateManager->place_of_birth=$request->place_of_birth;
+      $updateManager->birth_manager=$request->birth_manager;
+      $updateManager->gender=$request->gender;
+      $updateManager->religion=$request->religion;
+      $updateManager->address=$request->address;
+      $updateManager->position_manager=$request->position_manager;
+      $updateManager->desc_manager=$request->desc_manager;
+
+
+
+
+      if (empty($request->file('img_manager')))
+       {
+         $updateManager->img_manager=$updateManager->object_img;
+      }
+      else {
+        unlink('image/img_manager/'.$updateManager->img_manager); //menghapus file lama
+        $file = $request->file('img_manager');
+        $ext = $file->getClientOriginalName();
+        $newName = rand(100000,1001238912).".".$ext;
+        $file->move('image/img_manager/', $newName);
+        $updateManager->img_manager= $newName;
+      }
+      // $updateManager->update();
+      // dd($updateManager);
+      // $updateManager->img_event->$request->img_event;
+      $success = $updateManager->save();
+      // dd($updateManager);
+      if ($success){
+        //return untuk $success
+        return redirect()->route('manager')->with('alert', 'Data Berhasil dimasukan');
+
+      }else{
+        return redirect()->route('editManager')->with('alert', 'Data tidak berhasil dimasukan');
+      }
+      $updateManager->reset();
+      return redirect()->route('editManager');
+
     }
 
     /**

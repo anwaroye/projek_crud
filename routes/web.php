@@ -18,10 +18,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/benda','ControllerTableBenda@index')->name('benda');
-Route::get('/informasi','ControllerTableInfMuseum@index')->name('informasi');
+// Route::get('/informasi','ControllerTableInfMuseum@index')->name('informasi');
 Route::get('/pengelola','ControllerTablePengelola@index')->name('pengelola');
 Route::get('/dashboard','ControllerDashboard@index')->name('dashboard');
-Route::get('/kritikdansaran','ControllerTableKritikSaran@index')->name('kritikdansaran');
+Route::get('/kritik','ControllerTableKritikSaran@index')->name('kritik');
 Route::get('/user_android', 'ControllerTableUser@index')->name('user_android');
 Route::get('/posManger','ControllerPosManager@index')->name('posManger');
 Route::get('/religion','ControllerReligion@index')->name('religion');
@@ -46,6 +46,10 @@ Route::post('/deleteEvent/{id}', 'ControllerTableEvent@destroyEvent')->name('del
 
 
 //========  model informasi museum ====
+Route::get('/museum', 'ControllerViewMuseum@index')->name('museum');
+Route::get('/addmuseum', 'ControllerViewMuseum@create')->name('addmuseum');
+Route::post('/createmuseum','ControllerViewMuseum@store')->name('createmuseum');
+Route::post('/deletemus/{id}','ControllerViewMuseum@destroy')->name('deletemus');
 
 
 
@@ -54,7 +58,8 @@ Route::get('/manager','ControllerTablePengelola@index')->name('manager');
 Route::post('/createmanager','ControllerTablePengelola@store')->name('createmanager');
 Route::get('/addmanager','ControllerTablePengelola@addmanager')->name('addmanager');
 Route::post('/deletemanager/{id}','ControllerTablePengelola@destroyManager')->name('deletemanager');
-Route::get('/update_manager/{id}','ControllerTablePengelola@edit')->name('update_manager');
+Route::get('/editManager/{id}','ControllerTablePengelola@edit')->name('editManager');
+Route::post('/updateManager/{id}','ControllerTablePengelola@update')->name('updateManager');
 
 
 
