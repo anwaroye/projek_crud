@@ -14,9 +14,9 @@
       <div class="card text-white bg-primary o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-comments"></i>
+            {{-- <i class="fas fa-fw fa-papers"></i> --}}
           </div>
-          <div class="mr-5">26 New Messages!</div>
+          <div class="mr-5">{{($table_user->count())}} Data User!</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">View Details</span>
@@ -30,14 +30,14 @@
       <div class="card text-white bg-warning o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-list"></i>
+            {{-- <i class="fas fa-fw fa"></i> --}}
           </div>
-          <div class="mr-5">11 New Tasks!</div>
+          <div class="mr-5">{{($table_object->count())}} data object</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">View Details</span>
           <span class="float-right">
-            <i class="fas fa-angle-right"></i>
+            {{-- <i class="fas fa-angle-right"></i> --}}
           </span>
         </a>
       </div>
@@ -46,9 +46,9 @@
       <div class="card text-white bg-success o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-shopping-cart"></i>
+            {{-- <i class="fas fa-fw fa-shopping-cart"></i> --}}
           </div>
-          <div class="mr-5">123 New Orders!</div>
+          <div class="mr-5">{{($table_event->count())}} Data Event!</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">View Details</span>
@@ -62,9 +62,9 @@
       <div class="card text-white bg-danger o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-life-ring"></i>
+            {{-- <i class="fas fa-fw fa-life-ring"></i> --}}
           </div>
-          <div class="mr-5">13 New Tickets!</div>
+          <div class="mr-5">{{($table_criticism->count())}} Kritik dan saran!</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">View Details</span>

@@ -15,6 +15,10 @@
     </script>
 
     <title>SB Admin - Dashboard</title>
+    <!--     Fonts and icons     -->
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
     <!-- Bootstrap core CSS-->
     <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -83,7 +87,6 @@
     </nav>
 
     <div id="wrapper">
-
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item ">
@@ -100,8 +103,6 @@
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Data:</h6>
             <a class="dropdown-item" href="{{route('benda')}}">Benda museum</a>
-
-
           </div>
         </li>
 
